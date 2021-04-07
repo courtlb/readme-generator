@@ -2,7 +2,7 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {}
 
-// TODO: Create a function that returns the license link
+// TODO: Create a function that returns the license link in table of contents
 // If there is no license, return an empty string
 function renderLicenseLink(license) {}
 
