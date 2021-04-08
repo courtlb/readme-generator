@@ -56,31 +56,7 @@ const questions = [
             return false;
           }
         }
-      },
-      {
-        type: 'confirm',
-        name: 'confirmInstall',
-        message: 'Would you like to include information about installation?',
-        default: true
-      },
-      {
-        type: 'input',
-        name: 'install',
-        message: 'What command should be run to install dependencies?',
-        when: ({confirmInstall}) => confirmInstall
-      },
-      {
-        type: 'confirm',
-        name: 'confirmUsage',
-        message: 'Would you like to include information about usage?',
-        default: true
-      },
-      {
-        type: 'input',
-        name: 'usage',
-        message: 'What does the user need to know about using the repo?',
-        when: ({confirmUsage}) => confirmUsage
-      },
+      },      
       {
         type: 'confirm',
         name: 'confirmLicense',
@@ -95,37 +71,46 @@ const questions = [
         when: ({confirmLicense}) => confirmLicense
       },
       {
-        type: 'confirm',
-        name: 'confirmContribute',
-        message: 'Would you like to include information about contributing to the repo?',
-        default: true
+        type: 'input',
+        name: 'install',
+        message: 'What command should be run to install dependencies?',
       },
+      {
+        type: 'input',
+        name: 'usage',
+        message: 'What does the user need to know about using the repo?',
+      },
+
       {
         type: 'input',
         name: 'contribute',
         message: 'What does the user need to know about contributing to the repo?',
-        when: ({confirmContribute}) => confirmContribute
+      },
+      {
+        type: 'input',
+        name: 'test',
+        message: 'What command should be run to run tests?',
       },
 ];
 
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    return new Promise((resolve, reject) => {
-        fs.writeFile('README.md', data, err => {
-            if (err) {
-                reject (err);
-                return;
-            }
+// function writeToFile(fileName, data) {
+//     return new Promise((resolve, reject) => {
+//         fs.writeFile('README.md', data, err => {
+//             if (err) {
+//                 reject (err);
+//                 return;
+//             }
 
-            resolve({
-                ok: true,
-                message: 'File created!'
-            });
-        });
-    });
-};
+//             resolve({
+//                 ok: true,
+//                 message: 'File created!'
+//             });
+//         });
+//     });
+// };
 
 // TODO: Create a function to initialize app
 function init() {
