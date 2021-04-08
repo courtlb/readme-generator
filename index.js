@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown');
 const renderLicenseBadge = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
@@ -33,10 +34,10 @@ const questions = [
       },
       {
         type: 'input',
-        name: 'project',
+        name: 'title',
         message: "What is your project's name?",
-        validate: projectInput => {
-          if (projectInput) {
+        validate: titleInput => {
+          if (titleInput) {
             return true;
           } else {
             console.log("Please enter your project's name!");
@@ -91,7 +92,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'What kind of license should your project have?',
-        choices: ['Apache 2.0', 'Boost 1.0','Eclipse 1.0','GNU GPL v3','MIT'],
+        choices: ['Apache 2.0', 'Boost 1.0','Eclipse 1.0'],
         when: ({confirmLicense}) => confirmLicense
       },
       {
@@ -109,27 +110,31 @@ const questions = [
 ];
 
 inquirer.prompt(questions)
-    .then(function(answer) {
-        console.log(answer.license);
-        renderLicenseBadge(answer.license);
+    .then(data => {
+        console.log(data.license)
+        return generateMarkdown(data);
+    })
+    .then(markdownData => {
+        console.log(markdownData)
+        //return writeToFile(markdownData)
     });
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
-//     return new Promise((resolve, reject) => {
-//         fs.writeFile('README.md', data, err => {
-//             if (err) {
-//                 reject (err);
-//                 return;
-//             }
+function writeToFile(fileName, data) {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('README.md', data, err => {
+            if (err) {
+                reject (err);
+                return;
+            }
 
-//             resolve({
-//                 ok: true,
-//                 message: 'File created!'
-//             });
-//         });
-//     });
-// };
+            resolve({
+                ok: true,
+                message: 'File created!'
+            });
+        });
+    });
+};
 
 // TODO: Create a function to initialize app
 // function init() {

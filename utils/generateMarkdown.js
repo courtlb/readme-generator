@@ -7,7 +7,15 @@ function renderLicenseBadge(license) {
     return `
     [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
     `
-  }
+  } else if (license === "Boost 1.0") {
+    return `
+    [![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
+    `
+  } else if (license === "Eclipse 1.0") {
+    return `
+    [![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
+    `
+  } 
 };
 
 // TODO: Create a function that returns the license link in table of contents
@@ -22,7 +30,9 @@ function renderLicenseSection(license) {}
 function generateMarkdown(data) {
   return `# ${data.title}
 
+    ${renderLicenseBadge(data.license)}
+
 `;
 }
-module.exports = renderLicenseBadge;
-//module.exports = generateMarkdown;
+
+module.exports = generateMarkdown;
