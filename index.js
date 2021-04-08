@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const renderLicenseBadge = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -107,15 +108,35 @@ const questions = [
       },
 ];
 
+inquirer.prompt(questions)
+    .then(function(answer) {
+        console.log(answer.license);
+        renderLicenseBadge(answer.license);
+    });
+
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// function writeToFile(fileName, data) {
+//     return new Promise((resolve, reject) => {
+//         fs.writeFile('README.md', data, err => {
+//             if (err) {
+//                 reject (err);
+//                 return;
+//             }
+
+//             resolve({
+//                 ok: true,
+//                 message: 'File created!'
+//             });
+//         });
+//     });
+// };
 
 // TODO: Create a function to initialize app
-function init() {
-    return inquirer.prompt(questions);
-    //.then(generateMarkdown and writeToFile
+// function init() {
+//     inquirer.prompt(questions);
+//     //.then(generateMarkdown and writeToFile
     
-}
+// }
 
 // Function call to initialize app
-init();
+//init();
