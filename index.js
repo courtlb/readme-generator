@@ -58,19 +58,6 @@ const questions = [
         }
       },      
       {
-        type: 'confirm',
-        name: 'confirmLicense',
-        message: 'Would you like to specify a license for your project?',
-        default: false
-      },
-      {
-        type: 'list',
-        name: 'license',
-        message: 'What kind of license should your project have?',
-        choices: ['Apache 2.0', 'Boost 1.0','Eclipse 1.0'],
-        when: ({confirmLicense}) => confirmLicense
-      },
-      {
         type: 'input',
         name: 'install',
         message: 'What command should be run to install dependencies?',
@@ -91,37 +78,50 @@ const questions = [
         name: 'test',
         message: 'What command should be run to run tests?',
       },
+      {
+        type: 'confirm',
+        name: 'confirmLicense',
+        message: 'Would you like to specify a license for your project?',
+        default: false
+      },
+      {
+        type: 'list',
+        name: 'license',
+        message: 'What kind of license should your project have?',
+        choices: ['Apache 2.0', 'Boost 1.0','Eclipse 1.0'],
+        when: ({confirmLicense}) => confirmLicense
+      },
 ];
 
 
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
-//     return new Promise((resolve, reject) => {
-//         fs.writeFile('README.md', data, err => {
-//             if (err) {
-//                 reject (err);
-//                 return;
-//             }
+function writeToFile(data) {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('README.md', data, err => {
+            if (err) {
+                reject (err);
+                return;
+            }
 
-//             resolve({
-//                 ok: true,
-//                 message: 'File created!'
-//             });
-//         });
-//     });
-// };
+            resolve({
+                ok: true,
+                message: 'File created!'
+            });
+        });
+    });
+};
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
         .then(data => {
-            console.log(data.license)
+            console.log(data)
             return generateMarkdown(data);
         })
         .then(markdownData => {
             console.log(markdownData)
-            //return writeToFile(markdownData)
+            return writeToFile(markdownData)
         });
     
 }

@@ -1,3 +1,4 @@
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
@@ -71,7 +72,7 @@ function generateMarkdown(data) {
 
   ## Test
 
-  The command to run tests for this project is ${data.test}
+  The command to run tests for this project is ${data.test}.
 
   ## Questions
 
