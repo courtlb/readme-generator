@@ -1,42 +1,21 @@
+# README Generator
 
-  # My Project
-  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+## Description
 
-  ## Description
+This is an application that generates a professional README.md file from user input. The user can run the application from the command line, answer a series of questions from command line prompts, and a README with that information is automatically generated for the user's project. 
 
-  This is a description
+This project utilizes the following: 
 
-  ## Table of Contents
+* Javascript
+* Node.js
+* Inquirer
 
-  * [License](#license)
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Contribution](#contribution)
-  * [Test](#test)
-  * [Questions](#questions)
+## Usage
 
-  
-  ## License
+This application is run from the command line using the command "node index.js". The user is then prompted with a series of questions to answer about their project. 
 
-  This project is covered under the Apache 2.0 license. For more information, click the badge at the top of the document.
-  
+## Links
 
-  ## Installation
+Deployed application: https://courtlb.github.io/readme-generator/
 
-  The command to install dependencies for this project is npm install.
-
-  ## Usage
-
-  The user should know
-
-  ## Contribution 
-
-  The user should know
-
-  ## Test
-
-  The command to run tests for this project is npm test
-
-  ## Questions
-
-  If you have any questions about this project, you can email me at email@gmail.com. You can also find me on github at www.github.com/courtlb.
+Github repository: https://github.com/courtlb/readme-generator
