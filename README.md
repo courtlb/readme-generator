@@ -19,3 +19,5 @@ This application is run from the command line using the command "node index.js".
 Deployed application: https://courtlb.github.io/readme-generator/
 
 Github repository: https://github.com/courtlb/readme-generator
+
+Video walkthrough: https://drive.google.com/file/d/1mAolEZbtwjFS3yRIZCXbljyhv20gDAhR/view 

@@ -1,10 +1,10 @@
 
-  # My Project
+  # My Cool Project
   [![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
 
   ## Description
 
-  This is the description for my project. It is a very cool project. 
+  This is a short description of my project. It is very cool and useful!
 
   ## Table of Contents
 
@@ -23,15 +23,15 @@
 
   ## Installation
 
-  The command to install dependencies for this project is npm ins.
+  The command to install dependencies for this project is npm install.
 
   ## Usage
 
-  The user should know the following things about using the repo: blah blah blah
+  The user needs to know the following things about using this repo: blah blah blah
 
   ## Contribution 
 
-  The user should know the following things about contributing to the repo: blah blah blah
+  The user should know this about contributing to the repo: blah blah blah blah
 
   ## Test
 
